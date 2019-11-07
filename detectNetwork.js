@@ -24,6 +24,10 @@ var detectNetwork = function(cardNumber) {
   {
   	return 'American Express';
   }
+  if((cardNumber.substring(0,4) === '4903' || cardNumber.substring(0,4) === '4905' || cardNumber.substring(0,4) === '4911' || cardNumber.substring(0,4) === '4936' || cardNumber.substring(0,4) === '6333' || cardNumber.substring(0,4) === '6759' || cardNumber.substring(0,6) === '564182' || cardNumber.substring(0,6) === '633110') && (cardNumber.length === 16 || cardNumber.length === 18 || cardNumber.length === 19))
+  {
+    return 'Switch';
+  }
   if(cardNumber[0] === '4' && (cardNumber.length === 13 || cardNumber.length === 16 || cardNumber.length === 19))
   {
   	return 'Visa';
@@ -44,6 +48,43 @@ var detectNetwork = function(cardNumber) {
   {
   	return 'Maestro';
   }
+
+  start = parseInt(cardNumber.substring(0,6));
+  var prefCheck = 622126;
+  while(prefCheck < 622926)
+  {
+    if(start === prefCheck && (cardNumber.length >= 16 && cardNumber.length <= 19))
+    {
+      return 'China UnionPay';
+    }
+
+    prefCheck++;
+  }
+
+  start = parseInt(cardNumber.substring(0,3));
+  var prefCheck = 624;
+  while(prefCheck < 627)
+  {
+    if(start === prefCheck && (cardNumber.length >= 16 && cardNumber.length <= 19))
+    {
+      return 'China UnionPay';
+    }
+
+    prefCheck++;
+  }
+
+  start = parseInt(cardNumber.substring(0,4));
+  var prefCheck = 6282;
+  while(prefCheck < 6289)
+  {
+    if(start === prefCheck && (cardNumber.length >= 16 && cardNumber.length <= 19))
+    {
+      return 'China UnionPay';
+    }
+
+    prefCheck++;
+  }
+
   return 'error';
 };
 

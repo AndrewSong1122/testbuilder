@@ -349,3 +349,121 @@ describe('Maestro', function() {
   });
 });
 
+describe('China UnionPay', function() {
+  var should = chai.should();
+
+  var prefCheck = 622126;
+  while(prefCheck < 622926)
+  {
+    var testNum = prefCheck * Math.pow(10, 10);
+    it('has a prefix of ' + prefCheck + ' and a length of 16', function() {
+      detectNetwork(testNum.toString()).should.equal('China UnionPay');
+    });
+    testNum = prefCheck * Math.pow(10, 11);
+    it('has a prefix of ' + prefCheck + ' and a length of 17', function() {
+      detectNetwork(testNum.toString()).should.equal('China UnionPay');
+    });
+    testNum = prefCheck * Math.pow(10, 12);
+    it('has a prefix of ' + prefCheck + ' and a length of 18', function() {
+      detectNetwork(testNum.toString()).should.equal('China UnionPay');
+    });
+    testNum = prefCheck * Math.pow(10, 13);
+    it('has a prefix of ' + prefCheck + ' and a length of 19', function() {
+      detectNetwork(testNum.toString()).should.equal('China UnionPay');
+    });
+
+    prefCheck++;
+  }
+
+  prefCheck = 624;
+  while(prefCheck < 627)
+  {
+    var testNum = prefCheck * Math.pow(10, 13);
+    it('has a prefix of ' + prefCheck + ' and a length of 16', function() {
+      detectNetwork(testNum.toString()).should.equal('China UnionPay');
+    });
+    testNum = prefCheck * Math.pow(10, 14);
+    it('has a prefix of ' + prefCheck + ' and a length of 17', function() {
+      detectNetwork(testNum.toString()).should.equal('China UnionPay');
+    });
+    testNum = prefCheck * Math.pow(10, 15);
+    it('has a prefix of ' + prefCheck + ' and a length of 18', function() {
+      detectNetwork(testNum.toString()).should.equal('China UnionPay');
+    });
+    testNum = prefCheck * Math.pow(10, 16);
+    it('has a prefix of ' + prefCheck + ' and a length of 19', function() {
+      detectNetwork(testNum.toString()).should.equal('China UnionPay');
+    });
+
+    prefCheck++;
+  }
+
+  prefCheck = 6282;
+  while(prefCheck < 6289)
+  {
+    var testNum = prefCheck * Math.pow(10, 12);
+    it('has a prefix of ' + prefCheck + ' and a length of 16', function() {
+      detectNetwork(testNum.toString()).should.equal('China UnionPay');
+    });
+    testNum = prefCheck * Math.pow(10, 13);
+    it('has a prefix of ' + prefCheck + ' and a length of 17', function() {
+      detectNetwork(testNum.toString()).should.equal('China UnionPay');
+    });
+    testNum = prefCheck * Math.pow(10, 14);
+    it('has a prefix of ' + prefCheck + ' and a length of 18', function() {
+      detectNetwork(testNum.toString()).should.equal('China UnionPay');
+    });
+    testNum = prefCheck * Math.pow(10, 15);
+    it('has a prefix of ' + prefCheck + ' and a length of 19', function() {
+      detectNetwork(testNum.toString()).should.equal('China UnionPay');
+    });
+
+    prefCheck++;
+  }
+});
+
+describe('Switch', function() {
+  var should = chai.should();
+
+  for(var i = 10; i < 14; i++)
+  {
+    if(i !== 11)
+    {
+      var testStr = (564182 * Math.pow(10,i)).toString();
+      it('has a prefix of 564182 and a length of ' + (i + 6), function() {
+        (detectNetwork(testStr)).should.equal('Switch');
+      });
+      testStr = (633110 * Math.pow(10,i)).toString();
+      it('has a prefix of 633110 and a length of ' + (i + 6), function() {
+        (detectNetwork(testStr)).should.equal('Switch');
+      });
+
+
+      testStr = (4903 * Math.pow(10,(i+2))).toString();
+      it('has a prefix of 4903 and a length of ' + (i + 6), function() {
+        (detectNetwork(testStr)).should.equal('Switch');
+      });
+      testStr = (4905 * Math.pow(10,(i+2))).toString();
+      it('has a prefix of 4905 and a length of ' + (i + 6), function() {
+        (detectNetwork(testStr)).should.equal('Switch');
+      });
+      testStr = (4911 * Math.pow(10,(i+2))).toString();
+      it('has a prefix of 4911 and a length of ' + (i + 6), function() {
+        (detectNetwork(testStr)).should.equal('Switch');
+      });
+      testStr = (4936 * Math.pow(10,(i+2))).toString();
+      it('has a prefix of 4936 and a length of ' + (i + 6), function() {
+        (detectNetwork(testStr)).should.equal('Switch');
+      });
+      testStr = (6333 * Math.pow(10,(i+2))).toString();
+      it('has a prefix of 63333 and a length of ' + (i + 6), function() {
+        (detectNetwork(testStr)).should.equal('Switch');
+      });
+      testStr = (6759 * Math.pow(10,(i+2))).toString();
+      it('has a prefix of 6759 and a length of ' + (i + 6), function() {
+        (detectNetwork(testStr)).should.equal('Switch');
+      });
+    }
+  }
+});
+
